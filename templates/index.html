@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero bg-grid">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="pulse-dot"></span> AI enablement for SMEs</p>
+      <h1>AI that works for your business — <span class="grad-text">on your terms.</span></h1>
+      <p class="lead">From private, on-premise open-source models to leading hosted LLMs, ApexKube designs, builds and supports AI agents that plug straight into the tools you already use.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="about.html#contact">Start a conversation {{ icon("arrow-right") }}</a>
+        <a class="btn btn-ghost" href="services.html">Explore services</a>
+      </div>
+      <ul class="hero-points">
+        {% for point in HERO_POINTS %}
+        <li>{{ icon("check") }} {{ point }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="hero-svg" viewBox="0 0 400 360">
+        <defs>
+          <radialGradient id="hg-glow">
+            <stop offset="0" stop-color="#22d3ee" stop-opacity=".32"/>
+            <stop offset=".55" stop-color="#6366f1" stop-opacity=".12"/>
+            <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="hg-apex" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cffafe"/><stop offset="1" stop-color="#22d3ee"/>
+          </linearGradient>
+          <linearGradient id="hg-apex-shade" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0ea5c6"/><stop offset="1" stop-color="#0e7490"/>
+          </linearGradient>
+          <linearGradient id="hg-left" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/>
+          </linearGradient>
+          <linearGradient id="hg-right" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#3b2a8f"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="200" cy="182" r="170" fill="url(#hg-glow)"/>
+        <ellipse class="orbit" cx="200" cy="186" rx="172" ry="124"/>
+        <ellipse class="orbit" cx="200" cy="186" rx="118" ry="84"/>
+
+        <g class="links">
+          <path class="flow" d="M72 70 L200 182"/>
+          <path class="flow" d="M328 70 L200 182" style="animation-delay:-.4s"/>
+          <path class="flow" d="M44 190 L200 182" style="animation-delay:-.8s"/>
+          <path class="flow" d="M356 190 L200 182" style="animation-delay:-1.2s"/>
+          <path class="flow" d="M88 304 L200 182" style="animation-delay:-.6s"/>
+          <path class="flow" d="M312 304 L200 182" style="animation-delay:-1s"/>
+        </g>
+
+        <g class="float">
+          <g transform="translate(104 86) scale(3)">
+            <polygon points="10,26 32,38 32,62 10,50" fill="url(#hg-left)"/>
+            <polygon points="32,38 54,26 54,50 32,62" fill="url(#hg-right)"/>
+            <polygon points="32,2 10,26 32,38" fill="url(#hg-apex)"/>
+            <polygon points="32,2 32,38 54,26" fill="url(#hg-apex-shade)"/>
+            <g fill="none" stroke="#cffafe" stroke-width=".6" stroke-linecap="round" opacity=".9">
+              <path d="M15.5 34v9l8.5 4.6"/><path d="M38.5 45.5l8-4.4v-6.6"/>
+            </g>
+            <g fill="#cffafe">
+              <circle cx="15.5" cy="33.2" r=".8"/><circle cx="24.6" cy="48" r=".8"/>
+              <circle cx="38" cy="45.8" r=".8"/><circle cx="46.5" cy="33.8" r=".8"/>
+            </g>
+          </g>
+          <circle class="apex-spark" cx="200" cy="92" r="5"/>
+        </g>
+
+        <g class="node node-llm" transform="translate(72 70)"><rect x="-34" y="-16" width="68" height="32" rx="16"/><text y="5">LLM</text></g>
+        <g class="node" transform="translate(328 70)"><rect x="-32" y="-16" width="64" height="32" rx="16"/><text y="5">APIs</text></g>
+        <g class="node" transform="translate(44 190)"><rect x="-32" y="-16" width="64" height="32" rx="16"/><text y="5">CRM</text></g>
+        <g class="node" transform="translate(356 190)"><rect x="-34" y="-16" width="68" height="32" rx="16"/><text y="5">Docs</text></g>
+        <g class="node" transform="translate(88 304)"><rect x="-32" y="-16" width="64" height="32" rx="16"/><text y="5">ERP</text></g>
+        <g class="node" transform="translate(312 304)"><rect x="-36" y="-16" width="72" height="32" rx="16"/><text y="5">Email</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">What we do</p>
+      <h2>Everything you need to put AI to work</h2>
+      <p>Big companies have whole teams for this. ApexKube brings the same capability to growing businesses — sized, priced and explained for you.</p>
+    </div>
+    <div class="grid grid-4">
+      {% for s in SERVICES %}
+      <a class="card card-link reveal" href="services.html#{{ s.id }}">
+        <span class="card-icon">{{ icon(s.icon) }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.summary }}</p>
+        <span class="card-more">Learn more {{ icon("arrow-right") }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container split">
+    <div class="section-head reveal">
+      <p class="kicker">The agent harness</p>
+      <h2>Wrap your existing apps in an intelligent agent</h2>
+      <p>You don't need to replace your software to benefit from AI. Our agent harness sits between your business applications and the language model, giving the AI the tools to act — and you the controls to stay in charge.</p>
+      <ul class="checklist">
+        <li>{{ icon("check") }} Works with the systems you already pay for</li>
+        <li>{{ icon("check") }} You decide which actions need human approval</li>
+        <li>{{ icon("check") }} Every decision and action is logged</li>
+        <li>{{ icon("check") }} Switch LLMs at any time, with no rebuild</li>
+      </ul>
+    </div>
+    <div class="layers reveal">
+      {% for layer in HARNESS_LAYERS %}
+      {% if not loop.first %}<div class="connector" aria-hidden="true"><span></span></div>{% endif %}
+      <div class="layer{% if layer.get("core") %} layer-core{% endif %}">
+        <div class="layer-head">
+          <span class="card-icon">{{ icon(layer.icon) }}</span>
+          <div>
+            <h3>{{ layer.title }}</h3>
+            <p>{{ layer.text }}</p>
+          </div>
+        </div>
+        <ul class="chips">
+          {% for chip in layer.chips %}<li class="chip">{{ chip }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">How we work</p>
+      <h2>From first conversation to everyday results</h2>
+    </div>
+    <ol class="steps">
+      {% for step in PROCESS %}
+      <li class="step reveal">
+        <span class="step-num">{{ "%02d" % loop.index }}</span>
+        <span class="card-icon">{{ icon(step.icon) }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head section-head-row reveal">
+      <div>
+        <p class="kicker">Use cases</p>
+        <h2>What this looks like in practice</h2>
+      </div>
+      <a class="text-link" href="solutions.html">All solutions {{ icon("arrow-right") }}</a>
+    </div>
+    <div class="grid grid-3">
+      {% for s in SOLUTIONS[:3] %}
+      <article class="card reveal">
+        <span class="tag">{{ s.tag }}</span>
+        <span class="card-icon">{{ icon(s.icon) }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.solution }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

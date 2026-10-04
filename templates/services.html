@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero bg-grid">
+  <div class="container">
+    <p class="eyebrow">Services</p>
+    <h1>AI capability, <span class="grad-text">built around your business</span></h1>
+    <p class="lead">Local or hosted, simple assistant or multi-step agent — we design the right solution, build it with you and support it for the long term.</p>
+    <nav class="pill-nav" aria-label="Services on this page">
+      {% for s in SERVICES %}<a href="#{{ s.id }}">{{ s.title }}</a>{% endfor %}
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container service-list">
+    {% for s in SERVICES %}
+    <article id="{{ s.id }}" class="service reveal">
+      <div class="service-intro">
+        <span class="card-icon card-icon-lg">{{ icon(s.icon) }}</span>
+        <h2>{{ s.title }}</h2>
+        <p>{{ s.summary }}</p>
+        <p class="best-for"><strong>Best for:</strong> {{ s.best_for }}</p>
+      </div>
+      <ul class="checklist">
+        {% for point in s.points %}
+        <li>{{ icon("check") }} {{ point }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Local vs hosted</p>
+      <h2>Which kind of LLM is right for you?</h2>
+      <p>There's no single right answer, and many businesses use both. Here's how the two compare. We'll help you weigh it up for your own data and budget.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Factor</span></th>
+            <th scope="col">{{ icon("server") }} Local open-source</th>
+            <th scope="col">{{ icon("cloud") }} Hosted</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for factor, local, hosted in COMPARISON %}
+          <tr>
+            <th scope="row">{{ factor }}</th>
+            <td data-label="Local open-source">{{ local }}</td>
+            <td data-label="Hosted">{{ hosted }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="note reveal">{{ icon("shuffle") }} <span><strong>Can't decide?</strong> Hybrid routing sends sensitive tasks to a local model and heavy reasoning to a hosted one, automatically.</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    <div class="section-head reveal">
+      <p class="kicker">FAQ</p>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faqs reveal">
+      {% for f in FAQS %}
+      <details class="faq">
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero bg-grid">
+  <div class="container">
+    <p class="eyebrow">About ApexKube</p>
+    <h1>Enterprise-grade AI, <span class="grad-text">sized for growing businesses</span></h1>
+    <p class="lead">We believe every business should be able to use AI with confidence — not just the ones with large IT departments.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="prose reveal">
+      <p class="kicker">Our story</p>
+      <h2>Why we started ApexKube</h2>
+      <p>AI has moved faster in the last few years than any technology before it. Large enterprises have responded with dedicated teams, big budgets and long programmes. Small and medium-sized businesses have mostly been left with hype, scattered tools and unanswered questions about privacy and cost.</p>
+      <p>ApexKube exists to close that gap. We combine hands-on engineering — open-source model deployment, hosted LLM integration and agent development — with plain-English advice, so you get real results without having to become an AI company yourself.</p>
+    </div>
+    <div class="name-cards reveal">
+      <div class="card">
+        <span class="name-word grad-text">Apex</span>
+        <p>The peak. Helping your business reach the top of what it can do, with AI as a lever, not a distraction.</p>
+      </div>
+      <div class="card">
+        <span class="name-word grad-text">Kube</span>
+        <p>The building block. Solid, modular foundations, inspired by the cloud-native infrastructure we build on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">What we stand for</p>
+      <h2>Our principles</h2>
+    </div>
+    <div class="grid grid-4">
+      {% for v in VALUES %}
+      <div class="card reveal">
+        <span class="card-icon">{{ icon(v.icon) }}</span>
+        <h3>{{ v.title }}</h3>
+        <p>{{ v.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container narrow">
+    <div class="contact-card reveal">
+      <span class="card-icon card-icon-lg">{{ icon("mail") }}</span>
+      <p class="kicker">Contact</p>
+      <h2>Let's talk about your business</h2>
+      <p>A first conversation is free and comes with no obligation. Send us a short note and we'll get back to you to arrange a time.</p>
+      <a class="btn btn-primary btn-lg" href="mailto:{{ SITE.email }}?subject={{ 'AI discovery call' | urlencode }}">
+        {{ icon("mail") }} Email {{ SITE.email }}
+      </a>
+      <div class="contact-tips">
+        <h3>Helpful things to include</h3>
+        <ul class="checklist">
+          <li>{{ icon("check") }} What your business does, and roughly how big the team is</li>
+          <li>{{ icon("check") }} One or two tasks you'd love to automate or speed up</li>
+          <li>{{ icon("check") }} Any data, privacy or compliance requirements</li>
+          <li>{{ icon("check") }} The main systems you use (e.g. CRM, accounting, email)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

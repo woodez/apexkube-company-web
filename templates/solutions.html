@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero bg-grid">
+  <div class="container">
+    <p class="eyebrow">Solutions</p>
+    <h1>Real problems. <span class="grad-text">Practical AI.</span></h1>
+    <p class="lead">Every business is different, but the bottlenecks are often the same. Here are some of the ways SMEs use ApexKube agents to win back time and serve customers better.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      {% for s in SOLUTIONS %}
+      <article class="card solution reveal">
+        <div class="solution-head">
+          <span class="card-icon">{{ icon(s.icon) }}</span>
+          <div>
+            <span class="tag">{{ s.tag }}</span>
+            <h2>{{ s.title }}</h2>
+          </div>
+        </div>
+        <dl>
+          <div><dt>The problem</dt><dd>{{ s.problem }}</dd></div>
+          <div><dt>How we solve it</dt><dd>{{ s.solution }}</dd></div>
+          <div class="outcome"><dt>The outcome</dt><dd>{{ s.outcome }}</dd></div>
+        </dl>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container narrow center reveal">
+    <p class="kicker">Don't see your use case?</p>
+    <h2>If it involves text, documents or repetitive steps, an agent can probably help</h2>
+    <p>Tell us how the work gets done today. We'll come back with an honest view of what AI can do — and what it can't.</p>
+  </div>
+</section>
+{% endblock %}
